@@ -53,12 +53,12 @@ nav {
 }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .logo-mark {
-  width: 30px; height: 30px;
+  width: 32px; height: 32px;
   border: 1.5px solid var(--orange);
   display: flex; align-items: center; justify-content: center;
 }
-.logo-mark span { font-family: var(--serif); font-size: 14px; font-weight: 500; color: var(--orange); line-height: 1; }
-.logo-name { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 0.22em; text-transform: uppercase; }
+.logo-mark span { font-family: var(--serif); font-size: 15px; font-weight: 500; color: var(--orange); line-height: 1; }
+.logo-name { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.55); letter-spacing: 0.22em; text-transform: uppercase; }
 
 /* ── HERO — dark, compact ── */
 .hero {
@@ -71,47 +71,67 @@ nav {
   overflow: hidden;
 }
 
-/* Moon – large orb top-right */
+/* ── MOON ── */
 .moon {
   position: absolute;
-  top: -200px; right: -200px;
-  width: 680px; height: 680px;
+  top: -180px; right: -180px;
+  width: 620px; height: 620px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%,
-    rgba(255,255,255,0.09) 0%,
-    rgba(255,255,255,0.04) 30%,
-    rgba(255,255,255,0.015) 55%,
-    transparent 72%);
-  border: 1px solid rgba(255,255,255,0.055);
+  background:
+    radial-gradient(circle at 32% 28%,
+      rgba(255,255,255,0.13) 0%,
+      rgba(220,218,210,0.07) 20%,
+      rgba(160,158,150,0.04) 40%,
+      rgba(80,78,72,0.02) 60%,
+      transparent 72%),
+    radial-gradient(circle at 68% 72%,
+      rgba(40,38,35,0.15) 0%,
+      transparent 50%);
+  border: 1px solid rgba(255,255,255,0.07);
   box-shadow:
-    inset -30px -30px 80px rgba(0,0,0,0.5),
-    0 0 160px rgba(212,98,42,0.07);
+    inset -40px -40px 100px rgba(0,0,0,0.6),
+    inset 20px 20px 60px rgba(255,255,255,0.03),
+    0 0 200px rgba(212,98,42,0.06);
   pointer-events: none;
   animation: moonRise 1.6s ease 0.1s both;
+  overflow: hidden;
 }
-/* crater details */
+/* surface texture via pseudo-elements */
 .moon::before {
-  content: ''; position: absolute;
-  top: 38%; left: 28%; width: 70px; height: 70px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.035);
-  box-shadow: inset 0 0 24px rgba(0,0,0,0.35);
+  content: '';
+  position: absolute; inset: 0; border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 42%, rgba(0,0,0,0.2) 0%, transparent 12%),
+    radial-gradient(circle at 58% 30%, rgba(0,0,0,0.15) 0%, transparent 8%),
+    radial-gradient(circle at 22% 65%, rgba(0,0,0,0.12) 0%, transparent 10%),
+    radial-gradient(circle at 70% 58%, rgba(0,0,0,0.18) 0%, transparent 14%),
+    radial-gradient(circle at 45% 18%, rgba(0,0,0,0.1) 0%, transparent 7%),
+    radial-gradient(circle at 80% 40%, rgba(0,0,0,0.08) 0%, transparent 6%),
+    radial-gradient(circle at 15% 35%, rgba(255,255,255,0.04) 0%, transparent 8%),
+    radial-gradient(circle at 60% 70%, rgba(255,255,255,0.03) 0%, transparent 10%);
 }
 .moon::after {
-  content: ''; position: absolute;
-  top: 52%; left: 54%; width: 36px; height: 36px;
+  content: '';
+  position: absolute;
+  top: 36%; left: 26%;
+  width: 80px; height: 80px;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.025);
+  border: 1px solid rgba(0,0,0,0.25);
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.3);
 }
-/* orbit ring */
 .moon-orbit {
   position: absolute;
   top: -340px; right: -340px;
-  width: 960px; height: 960px;
+  width: 980px; height: 980px;
   border-radius: 50%;
-  border: 1px solid rgba(212,98,42,0.07);
+  border: 1px solid rgba(212,98,42,0.06);
   pointer-events: none;
   animation: moonRise 1.8s ease 0.2s both;
+}
+.moon-orbit::after {
+  content: ''; position: absolute; inset: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(212,98,42,0.03);
 }
 
 /* ambient glow */
@@ -393,7 +413,46 @@ h1 em { font-style: italic; color: var(--orange); }
 .profile.lt .profile-text { color: var(--ink-60); }
 .profile.dk .profile-text { color: var(--fog-2); }
 
-/* ── CTA — light ── */
+/* ── PILLARS ── */
+.pillars-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2px; background: var(--rule-l); margin-top: 0;
+}
+.pillar {
+  background: var(--paper); padding: 48px 44px;
+  position: relative; overflow: hidden;
+  transition: background 0.2s;
+}
+.pillar:hover { background: #f0ece4; }
+.pillar-tag {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--orange);
+  margin-bottom: 10px;
+}
+.pillar-name {
+  font-family: var(--serif);
+  font-size: 28px; font-weight: 400;
+  color: var(--ink); letter-spacing: -0.02em;
+  margin-bottom: 18px; line-height: 1.15;
+}
+.pillar-desc {
+  font-size: 14.5px; font-weight: 300;
+  color: var(--ink-60); line-height: 1.8;
+  margin-bottom: 24px; max-width: 420px;
+}
+.pillar-list {
+  list-style: none; display: flex; flex-direction: column; gap: 8px;
+}
+.pillar-list li {
+  font-size: 13px; font-weight: 400;
+  color: var(--ink-60); padding-left: 16px; position: relative;
+}
+.pillar-list li::before {
+  content: '—'; position: absolute; left: 0;
+  color: var(--orange); font-size: 11px;
+}
+
+/* ── CTA ── */
 .sec-cta {
   background: var(--paper-2);
   border-top: 1px solid var(--rule-l);
@@ -475,6 +534,7 @@ h1         { animation: fadeUp 0.7s ease 0.22s both; }
   .num-item:nth-child(4), .num-item:nth-child(5) { border-top: 1px solid var(--rule-l); }
   .tl-steps { grid-template-columns: 1fr 1fr; gap: 48px 20px; }
   .tl-rail { display: none; }
+  .pillars-grid { grid-template-columns: 1fr; }
   .eco-grid { grid-template-columns: 1fr 1fr; }
   .two-col { grid-template-columns: 1fr; gap: 48px; }
   .mods { grid-template-columns: 1fr 1fr; }
@@ -514,7 +574,7 @@ h1         { animation: fadeUp 0.7s ease 0.22s both; }
   <div class="hero-left">
     <div class="kicker">
       <div class="kicker-line"></div>
-      <span class="kicker-text">Association de conseillers indépendants</span>
+      <span class="kicker-text">Communauté de conseillers indépendants</span>
     </div>
     <h1>
       Entreprendre<br>
@@ -522,7 +582,7 @@ h1         { animation: fadeUp 0.7s ease 0.22s both; }
       sans être seul.
     </h1>
     <p class="hero-body">
-      Devenir conseiller en gestion de patrimoine indépendant — avec la liberté que ça implique, et le collectif qui manque souvent à ceux qui se lancent seuls.
+      Devenir conseiller en gestion de patrimoine indépendant — avec la liberté que ça implique, et la communauté qui manque souvent à ceux qui se lancent seuls.
     </p>
     <a href="https://calendar.app.google/vFs4GJCfCXq2tJao7" target="_blank" class="btn-hero">
       Réserver un premier échange
@@ -661,13 +721,13 @@ h1         { animation: fadeUp 0.7s ease 0.22s both; }
 <!-- ABOUT — crème foncé -->
 <section class="sec sec-about" id="plateforme">
   <div class="sec-inner">
-    <div class="ey"><div class="ey-line or"></div><span class="ey-text">L'association</span></div>
+    <div class="ey"><div class="ey-line or"></div><span class="ey-text">La communauté</span></div>
     <h2 class="sh light">Indépendant, oui.<br><em>Isolé, jamais.</em></h2>
     <div class="two-col">
       <div class="body-text">
-        <p>Se lancer à son compte dans le conseil patrimonial, c'est une décision qui a du sens. Mais trop souvent, ceux qui le font se retrouvent seuls face à des questions complexes — réglementaires, commerciales, techniques — sans personne vers qui se tourner.</p>
-        <p>L'association change ça. Vous restez indépendant, <strong>votre clientèle vous appartient</strong>, vos revenus ne dépendent ni d'une hiérarchie ni d'un employeur. Mais vous n'êtes pas seul : vous avez derrière vous un collectif, des ressources, et des gens qui sont passés par là avant vous.</p>
-        <p>CGP Skool est la plateforme qui centralise tout ce que l'association met à votre disposition — pour que vous puissiez <strong>vous concentrer sur ce qui compte : vos clients.</strong></p>
+        <p>CGP Skool c'est la communauté des conseillers qui ont rejoint une association d'indépendants adossée à un partenaire solide. Vous êtes indépendant — votre clientèle vous appartient, vos revenus aussi. Mais vous n'êtes pas seul.</p>
+        <p>Derrière vous : une association active, un partenaire solide, des gens qui sont passés par là avant vous et qui vous accompagnent à chaque étape. La plateforme centralise tout ce dont vous avez besoin pour <strong>démarrer et développer votre activité</strong> sans perdre de temps à chercher.</p>
+        <p>L'idée c'est simple : vous concentrer sur ce qui compte, <strong>vos clients</strong>, pendant que l'écosystème s'occupe du reste.</p>
       </div>
       <div class="item-list">
         <div class="item"><div class="item-icon">🎓</div><div><div class="item-title">Formation continue</div><div class="item-desc">Des modules progressifs, des ateliers réguliers, et une montée en compétence structurée à chaque étape.</div></div></div>
@@ -734,6 +794,41 @@ h1         { animation: fadeUp 0.7s ease 0.22s both; }
   </div>
 </section>
 
+<!-- PILIERS — Forman & Finzzle -->
+<section class="sec" style="background:var(--paper-2);border-top:1px solid var(--rule-l)">
+  <div class="sec-inner">
+    <div class="ey"><div class="ey-line or"></div><span class="ey-text">L'écosystème</span></div>
+    <h2 class="sh light">Deux piliers fondateurs.<br><em>Un écosystème complet.</em></h2>
+    <div class="pillars-grid">
+
+      <div class="pillar">
+        <div class="pillar-tag">Formation & association</div>
+        <div class="pillar-name">Association Forman</div>
+        <p class="pillar-desc">Une association de formation certifiée QUALIOPI, active depuis plus de 16 ans. Elle vous accompagne dans votre montée en compétences, vos habilitations réglementaires, et vous intègre dans une communauté de plus de 1 400 adhérents.</p>
+        <ul class="pillar-list">
+          <li>480 ateliers & 32 modules de formation</li>
+          <li>3 séminaires de professionnalisation certifiés</li>
+          <li>122 formateurs — 1 école des formateurs</li>
+          <li>Accompagnement habilitations & certifications</li>
+        </ul>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-tag">Partenaire financier</div>
+        <div class="pillar-name">Finzzle Groupe</div>
+        <p class="pillar-desc">Le partenaire qui vous donne accès aux meilleures solutions patrimoniales du marché, en architecture ouverte. Back-office, support juridique & réglementaire, veille constante — pour que vous puissiez exercer sereinement.</p>
+        <ul class="pillar-list">
+          <li>3,4 Mds€ d'encours conseillés</li>
+          <li>300 partenaires sélectionnés</li>
+          <li>Back-office & service réglementaire dédié</li>
+          <li>Veille fiscale & juridique en continu</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CTA — dark avec lune -->
 <section class="sec-cta">
   <div class="cta-layout">
@@ -758,10 +853,12 @@ h1         { animation: fadeUp 0.7s ease 0.22s both; }
 <!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">
-    <div class="footer-mark"><span>C</span></div>
-    <span class="footer-name">CGP Skool</span>
+    <div class="logo-mark" style="width:28px;height:28px;border-color:rgba(212,98,42,0.4)">
+      <span style="font-size:13px">C</span>
+    </div>
+    <span class="footer-name" style="margin-left:10px">CGP Skool</span>
   </a>
-  <span class="footer-copy">© 2025 — Outil interne réservé aux membres de l'association</span>
+  <span class="footer-copy">© 2025 CGP Skool — Communauté de conseillers indépendants</span>
 </footer>
 
 </body>
