@@ -314,6 +314,21 @@ h1 em { font-style: italic; color: var(--orange); }
 .tl-step-title em { font-style: italic; color: var(--orange); }
 .tl-step-body { font-size: 13px; font-weight: 300; color: var(--ink-60); line-height: 1.72; }
 
+/* ── ECOSYSTEM GRID ── */
+.eco-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 2px; background: var(--rule-l);
+  margin-top: 2px;
+}
+.eco-item {
+  background: var(--paper); padding: 32px 28px;
+  transition: background 0.2s;
+}
+.eco-item:hover { background: var(--paper-2); }
+.eco-icon { font-size: 22px; margin-bottom: 14px; }
+.eco-title { font-size: 13.5px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+.eco-desc { font-size: 12.5px; font-weight: 300; color: var(--ink-60); line-height: 1.65; }
+
 /* ── ABOUT — crème ── */
 .sec-about { background: var(--paper-2); border-top: 1px solid var(--rule-l); border-bottom: 1px solid var(--rule-l); }
 
@@ -460,6 +475,7 @@ h1         { animation: fadeUp 0.7s ease 0.22s both; }
   .num-item:nth-child(4), .num-item:nth-child(5) { border-top: 1px solid var(--rule-l); }
   .tl-steps { grid-template-columns: 1fr 1fr; gap: 48px 20px; }
   .tl-rail { display: none; }
+  .eco-grid { grid-template-columns: 1fr 1fr; }
   .two-col { grid-template-columns: 1fr; gap: 48px; }
   .mods { grid-template-columns: 1fr 1fr; }
   .profiles { grid-template-columns: 1fr; }
@@ -498,15 +514,15 @@ h1         { animation: fadeUp 0.7s ease 0.22s both; }
   <div class="hero-left">
     <div class="kicker">
       <div class="kicker-line"></div>
-      <span class="kicker-text">Plateforme patrimoniale · Accès réservé</span>
+      <span class="kicker-text">Association de conseillers indépendants</span>
     </div>
     <h1>
-      Travailler pour soi,<br>
-      <em>avec les bons outils</em><br>
-      et les bonnes personnes.
+      Entreprendre<br>
+      dans un métier <em>qui a du sens,</em><br>
+      sans être seul.
     </h1>
     <p class="hero-body">
-      Un métier qui a du sens, une activité qui vous appartient, et une équipe qui vous accompagne à chaque étape. CGP Skool est la plateforme interne des consultants du réseau.
+      Devenir conseiller en gestion de patrimoine indépendant — avec la liberté que ça implique, et le collectif qui manque souvent à ceux qui se lancent seuls.
     </p>
     <a href="https://calendar.app.google/vFs4GJCfCXq2tJao7" target="_blank" class="btn-hero">
       Réserver un premier échange
@@ -607,7 +623,7 @@ h1         { animation: fadeUp 0.7s ease 0.22s both; }
   <div class="tl-inner">
     <div class="ey"><div class="ey-line or"></div><span class="ey-text">Votre parcours</span></div>
     <h2 class="tl-title">
-      De zéro à <em>référence de votre secteur.</em><br>
+      De la découverte à <em>référence de votre secteur.</em><br>
       Un chemin clair, étape par étape.
     </h2>
     <div class="tl-track">
@@ -645,19 +661,43 @@ h1         { animation: fadeUp 0.7s ease 0.22s both; }
 <!-- ABOUT — crème foncé -->
 <section class="sec sec-about" id="plateforme">
   <div class="sec-inner">
-    <div class="ey"><div class="ey-line or"></div><span class="ey-text">La plateforme</span></div>
-    <h2 class="sh light">Une plateforme conçue<br><em>pour aller sur le terrain.</em></h2>
+    <div class="ey"><div class="ey-line or"></div><span class="ey-text">L'association</span></div>
+    <h2 class="sh light">Indépendant, oui.<br><em>Isolé, jamais.</em></h2>
     <div class="two-col">
       <div class="body-text">
-        <p>Accompagner les familles dans leurs décisions financières, c'est un vrai métier. Un métier qu'on apprend, qu'on pratique, et qui prend de la valeur avec le temps — parce que la relation de confiance avec vos clients, elle vous appartient.</p>
-        <p>CGP Skool est la plateforme qui réunit tout ce dont vous avez besoin pour <strong>démarrer et développer votre activité</strong> : les méthodes, les outils, le suivi. Pas de dispersion — juste ce qui fonctionne, dans l'ordre qui fait sens.</p>
-        <p>L'idée c'est simple : <strong>passer moins de temps à chercher, et plus de temps sur le terrain</strong> avec vos clients.</p>
+        <p>Se lancer à son compte dans le conseil patrimonial, c'est une décision qui a du sens. Mais trop souvent, ceux qui le font se retrouvent seuls face à des questions complexes — réglementaires, commerciales, techniques — sans personne vers qui se tourner.</p>
+        <p>L'association change ça. Vous restez indépendant, <strong>votre clientèle vous appartient</strong>, vos revenus ne dépendent ni d'une hiérarchie ni d'un employeur. Mais vous n'êtes pas seul : vous avez derrière vous un collectif, des ressources, et des gens qui sont passés par là avant vous.</p>
+        <p>CGP Skool est la plateforme qui centralise tout ce que l'association met à votre disposition — pour que vous puissiez <strong>vous concentrer sur ce qui compte : vos clients.</strong></p>
       </div>
       <div class="item-list">
-        <div class="item"><div class="item-icon">🛠</div><div><div class="item-title">Outils patrimoniaux digitalisés</div><div class="item-desc">Étude de dossier, simulateurs SCPI et immobilier, export PDF — sans Excel.</div></div></div>
-        <div class="item"><div class="item-icon">📋</div><div><div class="item-title">Méthodes & scripts certifiés</div><div class="item-desc">Prise de RDV, invitation, recommandation — appris et validés avec votre manager.</div></div></div>
-        <div class="item"><div class="item-icon">📊</div><div><div class="item-title">Pilotage de votre activité</div><div class="item-desc">Cockpit Notion, suivi des actions clés, points hebdomadaires structurés.</div></div></div>
-        <div class="item"><div class="item-icon">🎯</div><div><div class="item-title">Certifications & progression</div><div class="item-desc">Des étapes de validation régulières pour avancer avec méthode et confiance.</div></div></div>
+        <div class="item"><div class="item-icon">🎓</div><div><div class="item-title">Formation continue</div><div class="item-desc">Des modules progressifs, des ateliers réguliers, et une montée en compétence structurée à chaque étape.</div></div></div>
+        <div class="item"><div class="item-icon">🧭</div><div><div class="item-title">Mentorat & accompagnement</div><div class="item-desc">Un manager dédié, des certifications en binôme, et un suivi hebdomadaire pour ne jamais avancer à l'aveugle.</div></div></div>
+        <div class="item"><div class="item-icon">🛠</div><div><div class="item-title">Outils clé en main</div><div class="item-desc">CRM, simulateurs patrimoniaux, étude de dossier, export PDF — tout ce dont vous avez besoin pour travailler professionnellement.</div></div></div>
+        <div class="item"><div class="item-icon">⚙️</div><div><div class="item-title">Back-office & administratif</div><div class="item-desc">Gestion des dossiers, suivi des souscriptions, support opérationnel — pour que vous passiez moins de temps dans la paperasse.</div></div></div>
+      </div>
+    </div>
+
+    <!-- Ecosystem grid -->
+    <div class="eco-grid">
+      <div class="eco-item">
+        <div class="eco-icon">⚖️</div>
+        <div class="eco-title">Juridique & réglementaire</div>
+        <div class="eco-desc">Un service dédié pour répondre à vos questions de conformité, vous accompagner dans vos habilitations et sécuriser votre activité.</div>
+      </div>
+      <div class="eco-item">
+        <div class="eco-icon">🔭</div>
+        <div class="eco-title">Veille & actualité</div>
+        <div class="eco-desc">Les évolutions fiscales, réglementaires et marché vous parviennent sans que vous ayez à les chercher.</div>
+      </div>
+      <div class="eco-item">
+        <div class="eco-icon">🤝</div>
+        <div class="eco-title">Partenaires sélectionnés</div>
+        <div class="eco-desc">Un accès négocié aux meilleures solutions du marché — assureurs, promoteurs, établissements financiers — en architecture ouverte.</div>
+      </div>
+      <div class="eco-item">
+        <div class="eco-icon">📐</div>
+        <div class="eco-title">Méthodes éprouvées</div>
+        <div class="eco-desc">Des scripts, des trames, des process — tout ce qui fonctionne terrain, formalisé et transmis pour que vous n'ayez pas à tout réinventer.</div>
       </div>
     </div>
   </div>
@@ -670,7 +710,7 @@ h1         { animation: fadeUp 0.7s ease 0.22s both; }
     <h2 class="sh dark" style="margin-bottom:48px">Six modules,<br><em>une progression logique.</em></h2>
     <div class="mods">
       <div class="mod"><div class="mod-n">01</div><div class="mod-title">Prise en main & premiers jours</div><div class="mod-desc">Orientation, feuille de route, actions prioritaires dès votre arrivée.</div><div class="mod-tag tag-o"><span class="tag-dot dot-o"></span> Accès libre</div></div>
-      <div class="mod locked"><div class="mod-n">02</div><div class="mod-title">Maîtriser l'approche client</div><div class="mod-desc">Développement de votre réseau, études de marché et mises en relation.</div><div class="mod-tag tag-w"><span class="tag-dot dot-w"></span> Membres</div></div>
+      <div class="mod locked"><div class="mod-n">02</div><div class="mod-title">Maîtriser l'approche client</div><div class="mod-desc">Développement de vos contacts, études de marché et mises en relation.</div><div class="mod-tag tag-w"><span class="tag-dot dot-w"></span> Membres</div></div>
       <div class="mod locked"><div class="mod-n">03</div><div class="mod-title">Démarrage opérationnel</div><div class="mod-desc">Scripts de prise de RDV, invitation et recommandation. Certifiés progressivement.</div><div class="mod-tag tag-w"><span class="tag-dot dot-w"></span> Membres</div></div>
       <div class="mod locked"><div class="mod-n">04</div><div class="mod-title">Acquisition client</div><div class="mod-desc">Pipeline complet : premier contact, audit, étude de dossier, bilan et suivi.</div><div class="mod-tag tag-w"><span class="tag-dot dot-w"></span> Membres</div></div>
       <div class="mod locked"><div class="mod-n">05</div><div class="mod-title">Développer son organisation</div><div class="mod-desc">Habilitations, création d'entreprise, vision long terme et développement d'équipe.</div><div class="mod-tag tag-w"><span class="tag-dot dot-w"></span> Membres</div></div>
@@ -699,8 +739,8 @@ h1         { animation: fadeUp 0.7s ease 0.22s both; }
   <div class="cta-layout">
     <div>
       <div class="ey" style="margin-bottom:18px"><div class="ey-line or"></div><span class="ey-text">Rejoindre</span></div>
-      <h2 class="cta-h">Accédez à<br><em>la plateforme.</em></h2>
-      <p class="cta-body">L'accès est réservé aux consultants du réseau. Si vous êtes curieux de voir ce que c'est et si ça pourrait vous correspondre, on peut en parler en 20 minutes.</p>
+      <h2 class="cta-h">Vous êtes curieux<br>de voir <em>à quoi ça ressemble ?</em></h2>
+      <p class="cta-body">On peut en parler en 20 minutes. Pas de présentation commerciale — juste un échange pour voir si c'est fait pour vous et répondre à vos questions.</p>
     </div>
     <div class="cta-right">
       <a href="https://calendar.app.google/vFs4GJCfCXq2tJao7" target="_blank" class="btn-cta">
@@ -721,7 +761,7 @@ h1         { animation: fadeUp 0.7s ease 0.22s both; }
     <div class="footer-mark"><span>C</span></div>
     <span class="footer-name">CGP Skool</span>
   </a>
-  <span class="footer-copy">© 2025 — Outil interne réservé aux consultants du réseau</span>
+  <span class="footer-copy">© 2025 — Outil interne réservé aux membres de l'association</span>
 </footer>
 
 </body>
